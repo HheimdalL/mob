@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<form action="" method="post" class="card p-3 mt-5">
+    {% csrf_token %}
+    <h3>Информация о представителе семьи</h3>
+    <div class="row">
+      <div class="col-3">{{m_form.memberfirstname|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.memberlastname|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.memberfathername|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.memberbirthday|as_crispy_field}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3">{{m_form.social|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.relation|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.phonenumber|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.memberotherdata|as_crispy_field}}</div>
+    </div>
+    <h5>Адрес регистрации</h5>
+    <div class="row">
+      <div class="col-2">{{m_form.index|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.city|as_crispy_field}}</div>
+      <div class="col-3">{{m_form.street|as_crispy_field}}</div>
+      <div class="col-2">{{m_form.building|as_crispy_field}}</div>
+      <div class="col-2">{{m_form.apartment|as_crispy_field}}</div>
+    </div>      
+    <h3>Информация о военнослужащем</h3>
+    <div class="row">
+      <div class="col-3">{{p_form.firstname|as_crispy_field}}</div>
+      <div class="col-3">{{p_form.lastname|as_crispy_field}}</div>
+      <div class="col-3">{{p_form.fathername|as_crispy_field}}</div>
+      <div class="col-3">{{p_form.birthday|as_crispy_field}}</div>
+    </div>
+    <div class="row">
+      <div class="col-4">{{p_form.status|as_crispy_field}}</div>
+      <div class="col-4">{{p_form.statusdate|as_crispy_field}}</div>
+      <div class="col-4">{{p_form.otherdata|as_crispy_field}}</div>
+    </div>
+
+    <input type="submit" value="Сохранить" class="btn btn-primary mt-3">
+</form>
+
+<script>
+    $(function () {
+      $("#id_birthday").datepicker({
+        format:'dd/mm/yyyy',
+      });
+    });
+    $(function () {
+      $("#id_memberbirthday").datepicker({
+        format:'dd/mm/yyyy',
+      });
+    });
+    $(function () {
+      $("#id_statusdate").datepicker({
+        format:'dd/mm/yyyy',
+      });
+    });
+</script>
+
+{% endblock content %}
+
+
+
+
+

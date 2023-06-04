@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <p> {{ person.firstname }} </p>
+    <p> {{ person.lastname }} </p>
+    <p> {{ person.fathername }} </p>
+    <p> {{ person.birthday }} </p>
+    <p> {{ person.status }} </p>
+    <a href="{% url 'personchange' person.pk %}">Изменить</a>
+{% endblock content %}

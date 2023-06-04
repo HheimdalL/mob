@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Save">
+</form>
+
+<!-- <script>
+    $(function () {
+      $("#id_birthday").datepicker({
+        format:'dd/mm/yyyy',
+      });
+    });
+    $(function () {
+      $("#id_statusdate").datepicker({
+        format:'dd/mm/yyyy',
+      });
+    });
+</script> -->
+
+{% endblock content %}
